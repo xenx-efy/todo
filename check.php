@@ -6,12 +6,31 @@ function pre($obj) {
     var_dump($obj);
     echo '</pre>';
 }
-var_dump($_POST);
-$name = $_POST['nameValue'];
-$email = $_POST['emailValue'];
-$comment = $_POST['commentValue'];
+$name = trim($_POST['nameValue']);
+$email = trim($_POST['emailValue']);
+$comment = trim($_POST['commentValue']);
+
+
 $sql = "INSERT INTO comments (`email`, `comment`, `username`) VALUES ('$email', '$comment', '$name')";
 
-$statment = $pdo->query($sql);
-//$data = $statment->fetchAll(PDO::FETCH_OBJ);
-pre($statment);
+if ($name and $email and $comment) {
+    $pdo->query($sql);
+
+    $card = "<div class=\"mt-3 child\">
+    <div class=\"card\" style=\"width: 15rem;\">
+        <div class=\"card-header text-center text-light bg-success\">
+            $name
+        </div>
+        <div class=\"card-body\">
+            <p class=\"font-weight-bold text-center\">$email</p>
+            <p>$comment</p>
+        </div>
+    </div>
+</div>";
+
+
+    echo $card;
+}
+
+echo false;
+

@@ -1,3 +1,21 @@
 .star {
     color: red;
 }
+
+.page-wrapper {
+    margin: 20px;
+}
+
+.card-deck .child:nth-child(2n) .card-header  {
+    background-color: #6c757d !important;
+}
+.card-deck .child:nth-child(2n) .card-body  {
+    background-color: #1a25302a !important;
+}
+.card-deck .child:nth-child(2n) .card-header  {
+    background-color: #6c757d !important;
+}
+
+.card-deck .child:nth-child(odd) .card-body {
+    background-color: #3b993b2a !important;
+}
